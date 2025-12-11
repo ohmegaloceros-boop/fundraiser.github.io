@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate to Senator Maria Rodriguez - Colorado</title>
+    <link rel="stylesheet" href="fundland.css">
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>SENATOR MARIA RODRIGUEZ</h1>
+            <p class="tagline">Leading with Purpose. Fighting for Colorado.</p>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="donation-section">
+            <h2>Support Our Campaign</h2>
+            <p class="donation-text">Your contribution will help us continue fighting for healthcare access, climate action, and economic opportunity for all Coloradans.</p>
+
+            <div class="donation-buttons">
+                <button class="donate-btn" onclick="selectAmount(5)">$5</button>
+                <button class="donate-btn" onclick="selectAmount(50)">$50</button>
+                <button class="donate-btn" onclick="selectAmount(100)">$100</button>
+            </div>
+
+            <div class="custom-amount">
+                <label for="custom-amount">Or enter a custom amount:</label>
+                <div class="input-group">
+                    <span class="currency">$</span>
+                    <input type="number" id="custom-amount" placeholder="Enter amount" min="1">
+                </div>
+            </div>
+
+            <button class="submit-btn" onclick="processDonation()">CONTRIBUTE NOW</button>
+
+            <p class="secure-text">🔒 Secure and encrypted donation processing</p>
+        </div>
+
+        <div class="impact-section">
+            <h3>Your Impact</h3>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-icon">🏥</div>
+                    <h4>Healthcare for All</h4>
+                    <p>Expanding access to affordable healthcare and lowering prescription drug costs</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">🌲</div>
+                    <h4>Protect Our Environment</h4>
+                    <p>Fighting climate change and preserving Colorado's natural beauty</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">💼</div>
+                    <h4>Economic Growth</h4>
+                    <p>Creating good-paying jobs and supporting small businesses</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-icon">🎓</div>
+                    <h4>Education Investment</h4>
+                    <p>Ensuring every child has access to quality education</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <div class="about-images">
+                <img src="mountain.jpg" alt="Colorado Mountains" class="about-photo">
+                <img src="farmland.jpg" alt="Colorado Farmland" class="about-photo">
+            </div>
+            <h3>About Senator Rodriguez</h3>
+            <p>Born and raised in Colorado, Senator Maria Rodriguez has dedicated her life to public service. As a former teacher, small business owner, and community organizer, she understands the challenges facing everyday Coloradans.</p>
+            <p>Since taking office, Senator Rodriguez has been a champion for working families, fighting to protect our public lands, expand healthcare access, and build a clean energy economy that creates good-paying jobs.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Paid for by Rodriguez for Senate</p>
+        <p>P.O. Box 1234, Denver, CO 80202</p>
+        <p><small>Contributions are not tax-deductible. Federal law requires us to use our best efforts to collect and report the name, address, occupation, and employer of individuals whose contributions exceed $200 in an election cycle.</small></p>
+    </footer>
+
+    <script>
+        // Get amount from URL parameter if present
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const amount = urlParams.get('amount');
+            if (amount) {
+                selectAmount(parseInt(amount));
+            }
+        });
+
+        function selectAmount(amount) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.donate-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to selected button
+            const buttons = document.querySelectorAll('.donate-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent === '$' + amount) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Clear custom amount
+            document.getElementById('custom-amount').value = '';
+        }
+
+        // Clear button selection when custom amount is entered
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('custom-amount').addEventListener('input', function() {
+                if (this.value) {
+                    document.querySelectorAll('.donate-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                }
+            });
+        });
+
+        function processDonation() {
+            // Get selected amount
+            let amount = 0;
+            const activeBtn = document.querySelector('.donate-btn.active');
+            if (activeBtn) {
+                amount = parseInt(activeBtn.textContent.replace('$', ''));
+            } else {
+                amount = parseInt(document.getElementById('custom-amount').value);
+            }
+            
+            if (amount > 0) {
+                alert('Thank you for your contribution of $' + amount + '!\n\nIn a real implementation, this would redirect to a secure payment processor.');
+            } else {
+                alert('Please select or enter a donation amount.');
+            }
+        }
+    </script>
+</body>
+</html>
