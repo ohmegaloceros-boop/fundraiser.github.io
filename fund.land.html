@@ -221,12 +221,9 @@
 
         function submitPayment(event) {
             event.preventDefault();
-            const name = document.getElementById('card-name').value;
-            const amount = document.getElementById('donation-amount-display').textContent;
-            alert('Thank you, ' + name + '!\n\nYour contribution of ' + amount + ' has been processed successfully.\n\n(This is a mock payment - no actual transaction occurred)');
-            closePaymentModal();
-            // Reset form
-            document.getElementById('payment-form').reset();
+            const amount = document.getElementById('donation-amount-display').textContent.replace('$', '');
+            // Redirect to thank you page with amount
+            window.location.href = 'thank-you.html?amount=' + amount;
         }
     </script>
 </body>

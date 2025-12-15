@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Rodriguez for Senate</title>
+    <link rel="stylesheet" href="fundland.css">
+    <style>
+        .thank-you-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            background-color: #2E7D32;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark::after {
+            content: "✓";
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .thank-you-container h1 {
+            color: #0047AB;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .amount-display {
+            font-size: 48px;
+            color: #2E7D32;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .thank-you-container p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .impact-message {
+            background-color: #e3f2fd;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border-left: 4px solid #0047AB;
+        }
+
+        .impact-message h2 {
+            color: #0047AB;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .action-buttons {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .primary-btn {
+            background-color: #0047AB;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background-color: #003580;
+        }
+
+        .secondary-btn {
+            background-color: white;
+            color: #0047AB;
+            border: 2px solid #0047AB;
+        }
+
+        .secondary-btn:hover {
+            background-color: #f0f4f8;
+        }
+
+        .social-share {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .social-share h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .mock-banner {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            color: #856404;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-container {
+                margin: 40px 20px;
+                padding: 30px 20px;
+            }
+
+            .thank-you-container h1 {
+                font-size: 28px;
+            }
+
+            .amount-display {
+                font-size: 36px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="mock-banner">
+            🔒 This is a mock transaction - No actual payment was processed
+        </div>
+
+        <div class="checkmark"></div>
+        
+        <h1>Thank You for Your Support!</h1>
+        
+        <div class="amount-display" id="donation-amount">$50</div>
+        
+        <p><strong>Your contribution has been received.</strong></p>
+        
+        <p>You will receive a confirmation email shortly at the address you provided.</p>
+        
+        <div class="impact-message">
+            <h2>Your Impact</h2>
+            <p>Your generous contribution will help Senator Maria Rodriguez continue fighting for healthcare access, environmental protection, and economic opportunity for all Coloradans.</p>
+            <p>Together, we're building a brighter future for our communities.</p>
+        </div>
+        
+        <p>Every donation, no matter the size, makes a real difference in our campaign. With your support, we can reach more voters and amplify our message across Colorado.</p>
+        
+        <div class="action-buttons">
+            <a href="index.html" class="action-btn primary-btn">Return to Home</a>
+            <a href="fund.land.html" class="action-btn secondary-btn">Make Another Donation</a>
+        </div>
+        
+        <div class="social-share">
+            <h3>Help Us Spread the Word</h3>
+            <p>Share our campaign with your friends and family to multiply your impact!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Paid for by Rodriguez for Senate</p>
+        <p>P.O. Box 1234, Denver, CO 80202</p>
+        <p><small>Contributions are not tax-deductible.</small></p>
+    </footer>
+
+    <script>
+        // Get donation amount from URL parameter
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const amount = urlParams.get('amount');
+            if (amount) {
+                document.getElementById('donation-amount').textContent = '$' + amount;
+            }
+        });
+    </script>
+</body>
+</html>
