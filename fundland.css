@@ -1,97 +1,139 @@
-/* Reset and Base Styles */
+/**
+ * Donation Landing Page Stylesheet
+ * Purpose: Styles for the interactive donation page with payment modal
+ * Author: Rodriguez for Senate Campaign
+ * 
+ * This stylesheet implements a modern, responsive donation experience with:
+ * - Hero section with background imagery
+ * - Interactive donation amount selection
+ * - Modal payment form
+ * - Impact messaging and candidate information
+ * - Full mobile responsiveness
+ */
+
+/* ============================================
+   RESET AND BASE STYLES
+   ============================================ */
+
+/* Universal reset for consistent cross-browser rendering */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Include padding/border in element width */
 }
 
+/* Body with light background and readable typography */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
-    line-height: 1.6;
+    background-color: #f0f4f8; /* Light blue-gray background */
+    color: #333; /* Dark gray for optimal readability */
+    line-height: 1.6; /* Comfortable line spacing */
 }
 
-/* Hero Section */
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+/* Full-width hero with background image and overlay */
 .hero-section {
+    /* Gradient overlay blended with background image */
     background: linear-gradient(135deg, #0047AB 0%, #003580 100%), url('mountain.jpg');
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: multiply;
+    background-size: cover; /* Ensure image covers entire section */
+    background-position: center; /* Center the background image */
+    background-blend-mode: multiply; /* Blend gradient with image */
     color: white;
     padding: 80px 20px;
     text-align: center;
-    position: relative;
+    position: relative; /* For positioning overlay */
 }
 
+/* Additional overlay for enhanced text readability */
 .hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 71, 171, 0.7);
+    background-color: rgba(0, 71, 171, 0.7); /* Semi-transparent blue */
 }
 
+/* Hero content positioned above overlay */
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Ensure content appears above overlay */
 }
 
+/* Large, bold candidate name */
 .hero-content h1 {
     font-size: 42px;
     font-weight: bold;
     margin-bottom: 15px;
-    letter-spacing: 2px;
+    letter-spacing: 2px; /* Spacing for emphasis and readability */
 }
 
+/* Tagline beneath candidate name */
 .tagline {
     font-size: 20px;
     font-style: italic;
-    opacity: 0.95;
+    opacity: 0.95; /* Slightly transparent for visual hierarchy */
 }
 
-/* Main Container */
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+/* Constrained width container for all content sections */
 .main-container {
     max-width: 1000px;
-    margin: -40px auto 0;
-    padding: 0 20px 40px;
+    margin: -40px auto 0; /* Negative top margin overlaps hero for modern design */
+    padding: 0 20px 40px; /* Side and bottom padding */
 }
 
-/* Donation Section */
+/* ============================================
+   DONATION SECTION
+   ============================================ */
+
+/* Primary donation interaction area */
 .donation-section {
     background-color: white;
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 40px; /* Space before next section */
 }
 
+/* Section heading */
 .donation-section h2 {
-    color: #0047AB;
+    color: #0047AB; /* Brand blue */
     font-size: 32px;
     margin-bottom: 15px;
     text-align: center;
 }
 
+/* Descriptive text below heading */
 .donation-text {
     text-align: center;
     font-size: 18px;
     margin-bottom: 30px;
-    color: #555;
+    color: #555; /* Medium gray for readability */
 }
 
-/* Donation Buttons */
+/* ============================================
+   DONATION BUTTONS
+   ============================================ */
+
+/* Container for preset donation amount buttons */
 .donation-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* Space between buttons */
     margin: 30px 0;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
+/* Individual donation amount button */
 .donate-btn {
-    background-color: #0047AB;
+    background-color: #0047AB; /* Colorado Democratic blue */
     color: white;
     border: none;
     padding: 20px 40px;
@@ -99,32 +141,40 @@ body {
     font-weight: bold;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transitions for all properties */
     min-width: 140px;
 }
 
+/* Hover effect for donation buttons */
 .donate-btn:hover {
-    background-color: #003580;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 71, 171, 0.3);
+    background-color: #003580; /* Darker blue */
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 8px rgba(0, 71, 171, 0.3); /* Shadow for depth */
 }
 
+/* Active/clicked state */
 .donate-btn:active {
-    background-color: #002460;
-    transform: translateY(0);
+    background-color: #002460; /* Even darker blue */
+    transform: translateY(0); /* Return to original position */
 }
 
+/* Selected button state (applied via JavaScript) */
 .donate-btn.active {
-    background-color: #00296B;
-    box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.3);
+    background-color: #00296B; /* Darkest blue for selected state */
+    box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.3); /* Outline effect */
 }
 
-/* Custom Amount */
+/* ============================================
+   CUSTOM AMOUNT INPUT
+   ============================================ */
+
+/* Container for custom amount input section */
 .custom-amount {
     text-align: center;
     margin: 30px 0;
 }
 
+/* Label for custom amount input */
 .custom-amount label {
     display: block;
     margin-bottom: 10px;
@@ -132,37 +182,44 @@ body {
     color: #555;
 }
 
+/* Styled input group with currency symbol */
 .input-group {
     display: inline-flex;
     align-items: center;
-    border: 2px solid #0047AB;
+    border: 2px solid #0047AB; /* Brand color border */
     border-radius: 4px;
-    overflow: hidden;
+    overflow: hidden; /* Clip contents to rounded corners */
 }
 
+/* Currency symbol ($) prefix */
 .currency {
-    background-color: #0047AB;
+    background-color: #0047AB; /* Brand blue background */
     color: white;
     padding: 12px 15px;
     font-size: 18px;
     font-weight: bold;
 }
 
+/* Number input for custom amount */
 #custom-amount {
-    border: none;
+    border: none; /* Border handled by input-group */
     padding: 12px 15px;
     font-size: 18px;
     width: 200px;
-    outline: none;
+    outline: none; /* Remove default focus outline */
 }
 
-/* Submit Button */
+/* ============================================
+   SUBMIT BUTTON
+   ============================================ */
+
+/* Primary call-to-action button */
 .submit-btn {
     display: block;
     width: 100%;
-    max-width: 400px;
-    margin: 30px auto;
-    background-color: #0047AB;
+    max-width: 400px; /* Constrained width for better UX */
+    margin: 30px auto; /* Center horizontally */
+    background-color: #0047AB; /* Brand blue */
     color: white;
     border: none;
     padding: 18px 40px;
@@ -173,23 +230,30 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Hover state for submit button */
 .submit-btn:hover {
-    background-color: #003580;
-    box-shadow: 0 6px 12px rgba(0, 71, 171, 0.3);
+    background-color: #003580; /* Darker on hover */
+    box-shadow: 0 6px 12px rgba(0, 71, 171, 0.3); /* Enhanced shadow */
 }
 
+/* Active/clicked state */
 .submit-btn:active {
-    background-color: #002460;
+    background-color: #002460; /* Darkest blue when pressed */
 }
 
+/* Security message below submit button */
 .secure-text {
     text-align: center;
-    color: #666;
+    color: #666; /* Medium gray */
     font-size: 14px;
     margin-top: 15px;
 }
 
-/* Impact Section */
+/* ============================================
+   IMPACT SECTION
+   ============================================ */
+
+/* Section showing the impact of donations */
 .impact-section {
     background-color: white;
     padding: 40px;
@@ -198,42 +262,52 @@ body {
     margin-bottom: 40px;
 }
 
+/* Impact section heading */
 .impact-section h3 {
-    color: #0047AB;
+    color: #0047AB; /* Brand blue */
     font-size: 28px;
     margin-bottom: 30px;
     text-align: center;
 }
 
+/* 2x2 grid layout for impact items */
 .impact-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 800px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 30px; /* Space between grid items */
+    max-width: 800px; /* Constrain grid width */
+    margin: 0 auto; /* Center grid */
 }
 
+/* Individual impact item */
 .impact-item {
     text-align: center;
 }
 
+/* Icon/emoji for each impact item */
 .impact-icon {
     font-size: 48px;
     margin-bottom: 15px;
 }
 
+/* Impact item heading */
 .impact-item h4 {
-    color: #0047AB;
+    color: #0047AB; /* Brand blue */
     font-size: 20px;
     margin-bottom: 10px;
 }
 
+/* Impact item description */
 .impact-item p {
-    color: #666;
+    color: #666; /* Medium gray */
     font-size: 15px;
 }
 
-/* About Section */
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+/* Section with candidate biography and images */
 .about-section {
     background-color: white;
     padding: 40px;
@@ -241,153 +315,188 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* Grid layout for Colorado landscape images */
 .about-images {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
     gap: 20px;
     margin-bottom: 30px;
 }
 
+/* Individual about photo styling */
 .about-photo {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: cover; /* Crop to fit maintaining aspect ratio */
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
+/* About section heading */
 .about-section h3 {
-    color: #0047AB;
+    color: #0047AB; /* Brand blue */
     font-size: 28px;
     margin-bottom: 20px;
 }
 
+/* Biography paragraphs */
 .about-section p {
     font-size: 16px;
     margin-bottom: 15px;
-    color: #555;
-    line-height: 1.8;
+    color: #555; /* Medium gray for readability */
+    line-height: 1.8; /* Generous line height for comfortable reading */
 }
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
+
+/* Dark footer with legal information */
 footer {
-    background-color: #333;
+    background-color: #333; /* Dark gray background */
     color: white;
     padding: 30px 20px;
     text-align: center;
 }
 
+/* Footer paragraphs */
 footer p {
     margin: 5px 0;
     font-size: 14px;
 }
 
+/* Small print in footer */
 footer small {
     font-size: 12px;
-    opacity: 0.8;
+    opacity: 0.8; /* Slightly transparent */
 }
 
-/* Payment Modal */
+/* ============================================
+   PAYMENT MODAL
+   ============================================ */
+
+/* Modal overlay covering entire viewport */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
+    display: none; /* Hidden by default, shown via JavaScript */
+    position: fixed; /* Fixed positioning to cover viewport */
+    z-index: 1000; /* Ensure modal appears above all other content */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
-    justify-content: center;
+    overflow: auto; /* Allow scrolling if content is tall */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    align-items: center; /* Center modal vertically */
+    justify-content: center; /* Center modal horizontally */
 }
 
+/* Modal content card */
 .modal-content {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
     width: 90%;
-    max-width: 600px;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px; /* Constrain maximum width */
+    max-height: 90vh; /* Prevent modal from exceeding viewport height */
+    overflow-y: auto; /* Allow scrolling within modal if needed */
+    position: relative; /* For positioning close button */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Strong shadow for emphasis */
 }
 
+/* Close button (X) in top-right corner */
 .close-btn {
     position: absolute;
     right: 20px;
     top: 15px;
     font-size: 32px;
     font-weight: bold;
-    color: #666;
+    color: #666; /* Medium gray */
     cursor: pointer;
     transition: color 0.3s;
 }
 
+/* Close button hover state */
 .close-btn:hover {
-    color: #000;
+    color: #000; /* Darker on hover */
 }
 
+/* Modal heading */
 .modal-content h2 {
-    color: #0047AB;
+    color: #0047AB; /* Brand blue */
     margin-bottom: 10px;
 }
 
+/* Donation amount display in modal */
 .modal-amount {
     font-size: 20px;
     font-weight: bold;
-    color: #2E7D32;
+    color: #2E7D32; /* Green to indicate positive action */
     margin-bottom: 25px;
 }
 
+/* ============================================
+   FORM SECTIONS
+   ============================================ */
+
+/* Form section container (Contact, Payment, Billing) */
 .form-section {
     margin-bottom: 25px;
 }
 
+/* Section headings within form */
 .form-section h3 {
     color: #333;
     font-size: 18px;
     margin-bottom: 15px;
-    border-bottom: 2px solid #0047AB;
+    border-bottom: 2px solid #0047AB; /* Blue underline for emphasis */
     padding-bottom: 8px;
 }
 
+/* Individual form field group */
 .form-group {
     margin-bottom: 15px;
-    flex: 1;
+    flex: 1; /* Allow flexible sizing in form rows */
 }
 
+/* Row container for side-by-side form fields */
 .form-row {
     display: flex;
-    gap: 15px;
+    gap: 15px; /* Space between fields */
 }
 
+/* Form field labels */
 .form-group label {
     display: block;
     margin-bottom: 5px;
     color: #555;
-    font-weight: 500;
+    font-weight: 500; /* Medium weight for emphasis */
 }
 
+/* Form input fields */
 .form-group input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* Light gray border */
     border-radius: 5px;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s; /* Smooth border color change */
 }
 
+/* Input focus state */
 .form-group input:focus {
-    outline: none;
-    border-color: #0047AB;
+    outline: none; /* Remove default focus outline */
+    border-color: #0047AB; /* Brand blue border on focus */
 }
 
+/* ============================================
+   MODAL SUBMIT BUTTON
+   ============================================ */
+
+/* Submit button in payment modal */
 .modal-submit-btn {
     width: 100%;
     padding: 15px;
-    background-color: #2E7D32;
+    background-color: #2E7D32; /* Green for positive action */
     color: white;
     border: none;
     border-radius: 8px;
@@ -398,10 +507,12 @@ footer small {
     margin-top: 10px;
 }
 
+/* Modal submit button hover state */
 .modal-submit-btn:hover {
-    background-color: #1B5E20;
+    background-color: #1B5E20; /* Darker green on hover */
 }
 
+/* Mock payment disclaimer notice */
 .mock-notice {
     text-align: center;
     color: #666;
@@ -410,50 +521,64 @@ footer small {
     font-style: italic;
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================ */
+
+/* Tablet and mobile styles (768px and below) */
 @media (max-width: 768px) {
+    /* Smaller hero heading on mobile */
     .hero-content h1 {
         font-size: 32px;
     }
     
+    /* Smaller tagline on mobile */
     .tagline {
         font-size: 16px;
     }
     
+    /* Adjusted donation section for mobile */
     .donation-section {
-        padding: 25px;
-        margin-top: 20px;
+        padding: 25px; /* Reduced padding */
+        margin-top: 20px; /* Additional top margin to separate from hero */
     }
     
+    /* Ensure no extra top margin on heading */
     .donation-section h2 {
         margin-top: 0;
     }
     
+    /* Stack donation buttons vertically on mobile */
     .donation-buttons {
         flex-direction: column;
         align-items: center;
     }
     
+    /* Full-width buttons on mobile */
     .donate-btn {
         width: 100%;
-        max-width: 250px;
+        max-width: 250px; /* But not too wide */
     }
     
+    /* Narrower custom amount input on mobile */
     #custom-amount {
         width: 150px;
     }
     
+    /* Single column impact grid on mobile */
     .impact-grid {
         grid-template-columns: 1fr;
     }
     
+    /* Stack form fields vertically on mobile */
     .form-row {
         flex-direction: column;
-        gap: 0;
+        gap: 0; /* Remove gap, margin-bottom on form-group handles spacing */
     }
     
+    /* Nearly full-width modal on mobile */
     .modal-content {
         width: 95%;
-        padding: 20px;
+        padding: 20px; /* Reduced padding */
     }
 }

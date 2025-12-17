@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You - Rodriguez for Senate</title>
+    <!-- Reuse fundland.css for consistent footer styling -->
     <link rel="stylesheet" href="fundland.css">
     <style>
+        /* ============================================
+           THANK YOU PAGE SPECIFIC STYLES
+           ============================================ */
+        
+        /* Main container for thank you content */
         .thank-you-container {
             max-width: 800px;
             margin: 80px auto;
@@ -16,27 +22,30 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* Animated success checkmark circle */
         .checkmark {
             width: 80px;
             height: 80px;
-            background-color: #2E7D32;
-            border-radius: 50%;
+            background-color: #2E7D32; /* Success green */
+            border-radius: 50%; /* Perfect circle */
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 30px;
-            animation: scaleIn 0.5s ease-out;
+            animation: scaleIn 0.5s ease-out; /* Animated entrance */
         }
 
+        /* Scale-in animation for checkmark */
         @keyframes scaleIn {
             from {
-                transform: scale(0);
+                transform: scale(0); /* Start at zero size */
             }
             to {
-                transform: scale(1);
+                transform: scale(1); /* Grow to full size */
             }
         }
 
+        /* Checkmark symbol using CSS pseudo-element */
         .checkmark::after {
             content: "✓";
             color: white;
@@ -44,116 +53,140 @@
             font-weight: bold;
         }
 
+        /* Main thank you heading */
         .thank-you-container h1 {
-            color: #0047AB;
+            color: #0047AB; /* Brand blue */
             font-size: 36px;
             margin-bottom: 20px;
         }
 
+        /* Large, prominent donation amount display */
         .amount-display {
             font-size: 48px;
-            color: #2E7D32;
+            color: #2E7D32; /* Success green */
             font-weight: bold;
             margin: 20px 0;
         }
 
+        /* Body text paragraphs */
         .thank-you-container p {
             font-size: 18px;
-            line-height: 1.8;
+            line-height: 1.8; /* Comfortable reading */
             color: #555;
             margin-bottom: 15px;
         }
 
+        /* Highlighted impact message box */
         .impact-message {
-            background-color: #e3f2fd;
+            background-color: #e3f2fd; /* Light blue background */
             padding: 25px;
             border-radius: 8px;
             margin: 30px 0;
-            border-left: 4px solid #0047AB;
+            border-left: 4px solid #0047AB; /* Brand blue accent */
         }
 
+        /* Impact message heading */
         .impact-message h2 {
             color: #0047AB;
             font-size: 24px;
             margin-bottom: 15px;
         }
 
+        /* Container for call-to-action buttons */
         .action-buttons {
             margin-top: 40px;
             display: flex;
-            gap: 20px;
+            gap: 20px; /* Space between buttons */
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
         }
 
+        /* Base styling for action buttons */
         .action-btn {
             padding: 15px 30px;
-            text-decoration: none;
+            text-decoration: none; /* Remove underline from links */
             border-radius: 8px;
             font-weight: bold;
             font-size: 16px;
-            transition: all 0.3s;
+            transition: all 0.3s; /* Smooth hover transitions */
         }
 
+        /* Primary button (Return to Home) */
         .primary-btn {
-            background-color: #0047AB;
+            background-color: #0047AB; /* Brand blue */
             color: white;
         }
 
+        /* Primary button hover state */
         .primary-btn:hover {
-            background-color: #003580;
+            background-color: #003580; /* Darker blue */
         }
 
+        /* Secondary button (Make Another Donation) */
         .secondary-btn {
             background-color: white;
-            color: #0047AB;
-            border: 2px solid #0047AB;
+            color: #0047AB; /* Brand blue text */
+            border: 2px solid #0047AB; /* Brand blue border */
         }
 
+        /* Secondary button hover state */
         .secondary-btn:hover {
-            background-color: #f0f4f8;
+            background-color: #f0f4f8; /* Light blue-gray */
         }
 
+        /* Social sharing call-to-action section */
         .social-share {
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 2px solid #e0e0e0;
+            border-top: 2px solid #e0e0e0; /* Separator line */
         }
 
+        /* Social share heading */
         .social-share h3 {
             color: #333;
             font-size: 20px;
             margin-bottom: 15px;
         }
 
+        /* Warning banner indicating mock transaction */
         .mock-banner {
-            background-color: #fff3cd;
-            border: 2px solid #ffc107;
+            background-color: #fff3cd; /* Light yellow */
+            border: 2px solid #ffc107; /* Yellow border */
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 30px;
-            color: #856404;
+            color: #856404; /* Dark yellow-brown text */
             font-weight: 500;
         }
 
+        /* ============================================
+           RESPONSIVE DESIGN - MOBILE
+           ============================================ */
+        
+        /* Mobile adjustments for screens 768px and below */
         @media (max-width: 768px) {
+            /* Reduced margins and padding on mobile */
             .thank-you-container {
                 margin: 40px 20px;
                 padding: 30px 20px;
             }
 
+            /* Smaller heading on mobile */
             .thank-you-container h1 {
                 font-size: 28px;
             }
 
+            /* Smaller amount display on mobile */
             .amount-display {
                 font-size: 36px;
             }
 
+            /* Stack buttons vertically on mobile */
             .action-buttons {
                 flex-direction: column;
             }
 
+            /* Full-width buttons on mobile */
             .action-btn {
                 width: 100%;
             }
@@ -161,51 +194,69 @@
     </style>
 </head>
 <body>
+    <!-- Main thank you content container -->
     <div class="thank-you-container">
+        <!-- Warning banner for mock transaction -->
         <div class="mock-banner">
             🔒 This is a mock transaction - No actual payment was processed
         </div>
 
+        <!-- Animated success checkmark -->
         <div class="checkmark"></div>
         
+        <!-- Main thank you message -->
         <h1>Thank You for Your Support!</h1>
         
+        <!-- Display donation amount (populated by JavaScript from URL parameter) -->
         <div class="amount-display" id="donation-amount">$50</div>
         
+        <!-- Confirmation messaging -->
         <p><strong>Your contribution has been received.</strong></p>
         
         <p>You will receive a confirmation email shortly at the address you provided.</p>
         
+        <!-- Impact messaging to reinforce positive feelings about donation -->
         <div class="impact-message">
             <h2>Your Impact</h2>
             <p>Your generous contribution will help Senator Maria Rodriguez continue fighting for healthcare access, environmental protection, and economic opportunity for all Coloradans.</p>
             <p>Together, we're building a brighter future for our communities.</p>
         </div>
         
+        <!-- Additional encouragement and validation -->
         <p>Every donation, no matter the size, makes a real difference in our campaign. With your support, we can reach more voters and amplify our message across Colorado.</p>
         
+        <!-- Call-to-action buttons for next steps -->
         <div class="action-buttons">
             <a href="index.html" class="action-btn primary-btn">Return to Home</a>
             <a href="fund.land.html" class="action-btn secondary-btn">Make Another Donation</a>
         </div>
         
+        <!-- Social sharing encouragement -->
         <div class="social-share">
             <h3>Help Us Spread the Word</h3>
             <p>Share our campaign with your friends and family to multiply your impact!</p>
         </div>
     </div>
 
+    <!-- Footer with legal information (styled by fundland.css) -->
     <footer>
         <p>Paid for by Rodriguez for Senate</p>
         <p>P.O. Box 1234, Denver, CO 80202</p>
         <p><small>Contributions are not tax-deductible.</small></p>
     </footer>
 
+    <!-- JavaScript to display donation amount from URL parameter -->
     <script>
-        // Get donation amount from URL parameter
+        /**
+         * Initialize page and display donation amount
+         * Reads amount from URL parameter passed from payment form
+         */
         window.addEventListener('DOMContentLoaded', function() {
+            // Parse URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const amount = urlParams.get('amount');
+            
+            // If amount parameter exists, display it
             if (amount) {
                 document.getElementById('donation-amount').textContent = '$' + amount;
             }

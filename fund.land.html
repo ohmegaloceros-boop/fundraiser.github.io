@@ -7,25 +7,36 @@
     <link rel="stylesheet" href="fundland.css">
 </head>
 <body>
+    <!-- Hero section with background image and branding overlay -->
     <div class="hero-section">
+        <!-- Overlay to darken background image for text readability -->
         <div class="hero-overlay"></div>
+        
+        <!-- Hero content positioned above overlay -->
         <div class="hero-content">
             <h1>SENATOR MARIA RODRIGUEZ</h1>
             <p class="tagline">Leading with Purpose. Fighting for Colorado.</p>
         </div>
     </div>
 
+    <!-- Main content container - negative margin overlaps hero for modern design -->
     <div class="main-container">
+        
+        <!-- DONATION SELECTION SECTION -->
+        <!-- Primary interaction area for selecting donation amount -->
         <div class="donation-section">
             <h2>Support Our Campaign</h2>
             <p class="donation-text">Your contribution will help us continue fighting for healthcare access, climate action, and economic opportunity for all Coloradans.</p>
 
+            <!-- Preset donation amount buttons -->
+            <!-- onclick handlers update visual state and clear custom input -->
             <div class="donation-buttons">
                 <button class="donate-btn" onclick="selectAmount(5)">$5</button>
                 <button class="donate-btn" onclick="selectAmount(50)">$50</button>
                 <button class="donate-btn" onclick="selectAmount(100)">$100</button>
             </div>
 
+            <!-- Custom amount input for flexible donation values -->
             <div class="custom-amount">
                 <label for="custom-amount">Or enter a custom amount:</label>
                 <div class="input-group">
@@ -34,13 +45,17 @@
                 </div>
             </div>
 
+            <!-- Primary CTA button to proceed to payment modal -->
             <button class="submit-btn" onclick="processDonation()">CONTRIBUTE NOW</button>
 
             <p class="secure-text">🔒 Secure and encrypted donation processing</p>
         </div>
 
+        <!-- IMPACT SECTION -->
+        <!-- Shows potential impact of donation to motivate giving -->
         <div class="impact-section">
             <h3>Your Impact</h3>
+            <!-- 2x2 grid layout for impact items -->
             <div class="impact-grid">
                 <div class="impact-item">
                     <div class="impact-icon">🏥</div>
@@ -65,6 +80,8 @@
             </div>
         </div>
 
+        <!-- ABOUT SECTION -->
+        <!-- Provides candidate background and credibility -->
         <div class="about-section">
             <div class="about-images">
                 <img src="mountain.jpg" alt="Colorado Mountains" class="about-photo">
@@ -76,20 +93,28 @@
         </div>
     </div>
 
+    <!-- Footer with legal information and disclaimers -->
     <footer>
         <p>Paid for by Rodriguez for Senate</p>
         <p>P.O. Box 1234, Denver, CO 80202</p>
         <p><small>Contributions are not tax-deductible. Federal law requires us to use our best efforts to collect and report the name, address, occupation, and employer of individuals whose contributions exceed $200 in an election cycle.</small></p>
     </footer>
 
-    <!-- Payment Modal -->
+    <!-- PAYMENT MODAL -->
+    <!-- Hidden by default (display: none), shown when user clicks "CONTRIBUTE NOW" -->
     <div id="payment-modal" class="modal">
         <div class="modal-content">
+            <!-- Close button in top-right corner -->
             <span class="close-btn" onclick="closePaymentModal()">&times;</span>
+            
             <h2>Complete Your Donation</h2>
+            <!-- Display selected donation amount -->
             <p class="modal-amount">Amount: <span id="donation-amount-display"></span></p>
             
+            <!-- Payment form - mock implementation for demonstration -->
             <form id="payment-form" onsubmit="submitPayment(event)">
+                
+                <!-- CONTACT INFORMATION SECTION -->
                 <div class="form-section">
                     <h3>Contact Information</h3>
                     <div class="form-group">
@@ -108,6 +133,8 @@
                     </div>
                 </div>
 
+                <!-- PAYMENT INFORMATION SECTION -->
+                <!-- Mock credit card fields - no actual processing occurs -->
                 <div class="form-section">
                     <h3>Payment Information</h3>
                     <div class="form-group">
@@ -130,6 +157,7 @@
                     </div>
                 </div>
 
+                <!-- BILLING ADDRESS SECTION -->
                 <div class="form-section">
                     <h3>Billing Address</h3>
                     <div class="form-group">
@@ -152,29 +180,42 @@
                     </div>
                 </div>
 
+                <!-- Submit button for form -->
                 <button type="submit" class="modal-submit-btn">Complete Donation</button>
+                
+                <!-- Disclaimer that this is mock functionality -->
                 <p class="mock-notice">🔒 This is a mock payment form for demonstration purposes only. No actual payment will be processed.</p>
             </form>
         </div>
     </div>
 
+    <!-- JAVASCRIPT FOR DONATION INTERACTION -->
     <script>
-        // Get amount from URL parameter if present
+        /**
+         * Initialize page on load
+         * Check URL parameters for pre-selected amount (from landing page links)
+         */
         window.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const amount = urlParams.get('amount');
+            
+            // If amount parameter exists, pre-select that button
             if (amount) {
                 selectAmount(parseInt(amount));
             }
         });
 
+        /**
+         * Handle donation amount button selection
+         * @param {number} amount - The donation amount to select
+         */
         function selectAmount(amount) {
-            // Remove active class from all buttons
+            // Remove active state from all buttons
             document.querySelectorAll('.donate-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
-            // Add active class to selected button
+            // Add active class to the clicked button
             const buttons = document.querySelectorAll('.donate-btn');
             buttons.forEach(btn => {
                 if (btn.textContent === '$' + amount) {
@@ -182,14 +223,18 @@
                 }
             });
             
-            // Clear custom amount
+            // Clear custom amount input when preset button is selected
             document.getElementById('custom-amount').value = '';
         }
 
-        // Clear button selection when custom amount is entered
+        /**
+         * Handle custom amount input
+         * Clear button selection when user types in custom amount field
+         */
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('custom-amount').addEventListener('input', function() {
                 if (this.value) {
+                    // Remove active state from all preset buttons
                     document.querySelectorAll('.donate-btn').forEach(btn => {
                         btn.classList.remove('active');
                     });
@@ -197,32 +242,54 @@
             });
         });
 
+        /**
+         * Process donation - validate amount and show payment modal
+         * Called when user clicks "CONTRIBUTE NOW" button
+         */
         function processDonation() {
-            // Get selected amount
             let amount = 0;
+            
+            // Check if a preset button is selected
             const activeBtn = document.querySelector('.donate-btn.active');
             if (activeBtn) {
                 amount = parseInt(activeBtn.textContent.replace('$', ''));
             } else {
+                // Otherwise use custom amount input
                 amount = parseInt(document.getElementById('custom-amount').value);
             }
             
+            // Validate that an amount was selected/entered
             if (amount > 0) {
+                // Display amount in modal and show modal
                 document.getElementById('donation-amount-display').textContent = '$' + amount;
                 document.getElementById('payment-modal').style.display = 'flex';
             } else {
+                // Prompt user to select/enter an amount
                 alert('Please select or enter a donation amount.');
             }
         }
 
+        /**
+         * Close the payment modal
+         * Called when user clicks X button or outside modal
+         */
         function closePaymentModal() {
             document.getElementById('payment-modal').style.display = 'none';
         }
 
+        /**
+         * Submit payment form
+         * Redirects to thank you page with donation amount
+         * @param {Event} event - Form submit event
+         */
         function submitPayment(event) {
+            // Prevent default form submission
             event.preventDefault();
+            
+            // Get the donation amount
             const amount = document.getElementById('donation-amount-display').textContent.replace('$', '');
-            // Redirect to thank you page with amount
+            
+            // Redirect to thank you page with amount as URL parameter
             window.location.href = 'thank-you.html?amount=' + amount;
         }
     </script>

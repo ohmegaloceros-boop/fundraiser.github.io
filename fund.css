@@ -1,172 +1,237 @@
-/* Reset and Base Styles */
+/**
+ * Fundraiser Landing Page Stylesheet
+ * Purpose: Styles for the main campaign email-style landing page
+ * Author: Rodriguez for Senate Campaign
+ * 
+ * This stylesheet creates a clean, email-inspired design optimized for
+ * political campaign fundraising. The layout mimics a traditional campaign
+ * email while maintaining modern web standards and responsive design.
+ */
+
+/* ============================================
+   RESET AND BASE STYLES
+   ============================================ */
+
+/* Universal box-sizing for consistent sizing across all elements */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body styles with accessible font stack and neutral background */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+    background-color: #f5f5f5; /* Light gray background for contrast */
+    color: #333; /* Dark gray text for readability */
+    line-height: 1.6; /* Improved readability */
+    padding: 20px; /* Breathing room on edges */
 }
 
-/* Email Container */
+/* ============================================
+   EMAIL CONTAINER
+   ============================================ */
+
+/* Main container mimicking email width and styling */
 .email-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Standard email width */
+    margin: 0 auto; /* Center horizontally */
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 8px; /* Soft corners */
+    overflow: hidden; /* Clip children to rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle depth */
 }
 
-/* Header */
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+
+/* Header with campaign branding and hero image */
 .header {
-    background-color: #0047AB;
+    background-color: #0047AB; /* Colorado Democratic blue */
     color: white;
     padding: 30px 20px;
     text-align: center;
 }
 
+/* Hero image at top of header */
 .header-image {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* Maintain aspect ratio while filling space */
     margin-bottom: 20px;
-    opacity: 0.9;
+    opacity: 0.9; /* Slight transparency for sophistication */
 }
 
+/* Main header text - candidate name */
 .header h1 {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 1px; /* Slight spacing for emphasis */
 }
 
+/* Subtitle/tagline below candidate name */
 .subtitle {
     font-size: 16px;
     font-style: italic;
-    opacity: 0.9;
+    opacity: 0.9; /* Slightly muted for hierarchy */
 }
 
-/* Email Content */
+/* ============================================
+   EMAIL CONTENT SECTION
+   ============================================ */
+
+/* Main content area with campaign message */
 .email-content {
     padding: 30px;
 }
 
+/* Personalized greeting at top of content */
 .greeting {
     font-size: 18px;
     margin-bottom: 20px;
 }
 
+/* Standard paragraph styling for body text */
 .email-content p {
     margin-bottom: 15px;
     font-size: 16px;
 }
 
+/* Unordered list for accomplishments */
 .email-content ul {
-    margin: 20px 0 20px 30px;
+    margin: 20px 0 20px 30px; /* Standard indentation */
 }
 
+/* List items for key achievements */
 .email-content li {
     margin-bottom: 10px;
     font-size: 15px;
 }
 
+/* Urgent call-to-action text */
 .urgent {
     font-size: 18px;
-    color: #0047AB;
+    color: #0047AB; /* Brand blue for emphasis */
     margin-top: 25px;
     margin-bottom: 25px;
     text-align: center;
 }
 
-/* Email Images */
+/* ============================================
+   IMAGE SECTION
+   ============================================ */
+
+/* Container for centered images within content */
 .email-image {
     text-align: center;
     margin: 25px 0;
 }
 
+/* Responsive image styling */
 .email-image img {
     max-width: 100%;
-    height: auto;
+    height: auto; /* Maintain aspect ratio */
     border-radius: 4px;
 }
 
-/* Donation Buttons */
+/* ============================================
+   DONATION BUTTONS
+   ============================================ */
+
+/* Container for donation button group */
 .button-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 15px; /* Spacing between buttons */
     margin: 30px 0;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
+/* Individual donation button styling */
 .donation-button {
     display: inline-block;
-    background-color: #0047AB;
+    background-color: #0047AB; /* Colorado Democratic blue */
     color: white;
     padding: 15px 30px;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline from links */
     font-size: 18px;
     font-weight: bold;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
     min-width: 120px;
     text-align: center;
 }
 
+/* Hover state for donation buttons */
 .donation-button:hover {
-    background-color: #003580;
+    background-color: #003580; /* Darker blue on hover */
 }
 
+/* Active/pressed state for donation buttons */
 .donation-button:active {
-    background-color: #002460;
+    background-color: #002460; /* Even darker when clicked */
 }
 
-/* Closing and Signature */
+/* ============================================
+   CLOSING AND SIGNATURE
+   ============================================ */
+
+/* Closing message paragraph */
 .closing {
     margin-top: 25px;
     font-size: 16px;
 }
 
+/* Signature block at end of message */
 .signature {
     margin-top: 25px;
     font-size: 16px;
 }
 
-/* Footer */
+/* ============================================
+   FOOTER SECTION
+   ============================================ */
+
+/* Footer with legal disclaimers */
 .footer {
-    background-color: #f8f8f8;
+    background-color: #f8f8f8; /* Light gray background */
     padding: 20px;
     text-align: center;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0; /* Subtle separator line */
 }
 
+/* Footer paragraph text */
 .footer p {
     margin: 5px 0;
-    color: #666;
+    color: #666; /* Muted gray for legal text */
 }
 
-/* Responsive Design */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Mobile-specific styles for screens 600px and below */
 @media (max-width: 600px) {
+    /* Stack buttons vertically on mobile */
     .button-container {
         flex-direction: column;
         align-items: center;
     }
     
+    /* Full-width buttons on mobile with max-width constraint */
     .donation-button {
         width: 100%;
         max-width: 250px;
     }
     
+    /* Smaller header text on mobile */
     .header h1 {
         font-size: 24px;
     }
     
+    /* Reduced padding on mobile for better use of space */
     .email-content {
         padding: 20px;
     }
