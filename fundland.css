@@ -422,6 +422,11 @@ footer small {
     
     .donation-section {
         padding: 25px;
+        margin-top: 20px;
+    }
+    
+    .donation-section h2 {
+        margin-top: 0;
     }
     
     .donation-buttons {
